@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>North & Note | Discover Ideas Worth Exploring</title>
+
+  <meta
+    name="description"
+    content="Discover fresh ideas across fashion, food, travel, nature and quotes with North & Note."
+  >
+
+  <style>
+    :root {
+      --primary: #263B3A;
+      --secondary: #6F8F8B;
+      --accent: #D8A56D;
+      --light: #F4F1EC;
+      --lighter: #FAF9F6;
+      --white: #FFFFFF;
+      --text: #303536;
+      --muted: #737978;
+      --border: #E5E2DC;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--lighter);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 120px 24px 110px;
+      background:
+        linear-gradient(
+          135deg,
+          #EEF1ED 0%,
+          #F8F5EF 55%,
+          #EEE9E0 100%
+        );
+    }
+
+    .hero-content {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: var(--secondary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      margin: 0 0 24px;
+      color: var(--primary);
+      font-size: clamp(44px, 7vw, 82px);
+      line-height: 1.02;
+      letter-spacing: -3px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 0 34px;
+      color: #5E6664;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .hero-button,
+    .cta-button {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 5px;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .hero-button:hover,
+    .cta-button:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .intro-section {
+      padding: 90px 24px 40px;
+    }
+
+    .intro-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .intro-content h2,
+    .section-heading h2,
+    .bottom-cta h2 {
+      margin: 0 0 18px;
+      color: var(--primary);
+      font-size: clamp(32px, 4vw, 50px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+    }
+
+    .intro-content p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .niches-section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 70px 24px 100px;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .niche-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .niche-card {
+      position: relative;
+      min-height: 330px;
+      padding: 32px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--white);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .niche-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(30, 40, 38, 0.08);
+    }
+
+    .niche-card:nth-child(5) {
+      grid-column: span 2;
+    }
+
+    .niche-number {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .niche-content {
+      max-width: 520px;
+      margin-top: 55px;
+    }
+
+    .niche-label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--secondary);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .niche-content h3 {
+      margin: 0 0 14px;
+      color: var(--primary);
+      font-size: 27px;
+      line-height: 1.2;
+    }
+
+    .niche-content p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .niche-content a {
+      display: inline-block;
+      color: var(--primary);
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 3px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .fashion-card {
+      background: linear-gradient(145deg, #FFFFFF, #F7F0F4);
+    }
+
+    .food-card {
+      background: linear-gradient(145deg, #FFFFFF, #F8F0E7);
+    }
+
+    .travel-card {
+      background: linear-gradient(145deg, #FFFFFF, #EDF4F4);
+    }
+
+    .nature-card {
+      background: linear-gradient(145deg, #FFFFFF, #EEF4EA);
+    }
+
+    .quotes-card {
+      background: linear-gradient(145deg, #FFFFFF, #F1EFF7);
+    }
+
+    .bottom-cta {
+      max-width: 1120px;
+      margin: 0 auto 90px;
+      padding: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+      border-radius: 14px;
+      background: var(--light);
+    }
+
+    .bottom-cta-content {
+      max-width: 680px;
+    }
+
+    .bottom-cta h2 {
+      margin-bottom: 14px;
+    }
+
+    .bottom-cta p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        padding: 85px 20px 80px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .niche-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .niche-card:nth-child(5) {
+        grid-column: span 1;
+      }
+
+      .bottom-cta {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 38px 28px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .intro-section {
+        padding: 70px 20px 30px;
+      }
+
+      .niches-section {
+        padding: 55px 20px 75px;
+      }
+
+      .niche-card {
+        min-height: 300px;
+        padding: 26px;
+      }
+
+      .niche-content {
+        margin-top: 40px;
+      }
+
+      .niche-content h3 {
+        font-size: 23px;
+      }
+
+      .bottom-cta {
+        margin-bottom: 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div id="site-header"></div>
+
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+
+        <span class="eyebrow">
+          North & Note
+        </span>
+
+        <h1>
+          Discover something interesting today.
+        </h1>
+
+        <p>
+          Explore a collection of ideas, inspiration and stories covering
+          style, food, travel, nature and the words that stay with us.
+        </p>
+
+        <a href="#explore" class="hero-button">
+          Explore Topics
+        </a>
+
+      </div>
+    </section>
+
+
+    <!-- Introduction -->
+    <section class="intro-section">
+
+      <div class="intro-content">
+
+        <span class="eyebrow">
+          Explore & Discover
+        </span>
+
+        <h2>
+          Five worlds of inspiration, all in one place.
+        </h2>
+
+        <p>
+          From discovering a new style idea to finding inspiration for your
+          next journey, North & Note brings together different subjects
+          worth exploring.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- Niches -->
+    <section class="niches-section" id="explore">
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          Our Topics
+        </span>
+
+        <h2>
+          Choose something to explore.
+        </h2>
+
+        <p>
+          Browse our topics and discover ideas selected to give you
+          something new to read, consider or try.
+        </p>
+
+      </div>
+
+
+      <div class="niche-grid">
+
+
+        <!-- Fashion -->
+        <article class="niche-card fashion-card">
+
+          <div class="niche-number">
+            01
+          </div>
+
+          <div class="niche-content">
+
+            <span class="niche-label">
+              Fashion
+            </span>
+
+            <h3>
+              Style ideas for every kind of day.
+            </h3>
+
+            <p>
+              Explore outfit inspiration, wardrobe ideas, seasonal
+              style and simple approaches to everyday fashion.
+            </p>
+
+            <a href="fashion.html">
+              Explore Fashion →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Food -->
+        <article class="niche-card food-card">
+
+          <div class="niche-number">
+            02
+          </div>
+
+          <div class="niche-content">
+
+            <span class="niche-label">
+              Food
+            </span>
+
+            <h3>
+              Fresh ideas for the everyday kitchen.
+            </h3>
+
+            <p>
+              Discover meal inspiration, interesting ingredients,
+              food combinations and simple kitchen ideas.
+            </p>
+
+            <a href="food.html">
+              Explore Food →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Travel -->
+        <article class="niche-card travel-card">
+
+          <div class="niche-number">
+            03
+          </div>
+
+          <div class="niche-content">
+
+            <span class="niche-label">
+              Travel
+            </span>
+
+            <h3>
+              Ideas for your next journey.
+            </h3>
+
+            <p>
+              Find destination inspiration, planning ideas and
+              thoughtful ways to make your next trip memorable.
+            </p>
+
+            <a href="travel.html">
+              Explore Travel →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Nature -->
+        <article class="niche-card nature-card">
+
+          <div class="niche-number">
+            04
+          </div>
+
+          <div class="niche-content">
+
+            <span class="niche-label">
+              Nature
+            </span>
+
+            <h3>
+              Take a closer look at the natural world.
+            </h3>
+
+            <p>
+              Discover outdoor inspiration, seasonal observations
+              and simple ideas for spending more time outside.
+            </p>
+
+            <a href="nature.html">
+              Explore Nature →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Quotes -->
+        <article class="niche-card quotes-card">
+
+          <div class="niche-number">
+            05
+          </div>
+
+          <div class="niche-content">
+
+            <span class="niche-label">
+              Quotes
+            </span>
+
+            <h3>
+              Words that give you something to think about.
+            </h3>
+
+            <p>
+              Explore thoughtful words and ideas around life,
+              confidence, growth, motivation and perspective.
+            </p>
+
+            <a href="quotes.html">
+              Explore Quotes →
+            </a>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- Bottom CTA -->
+    <section class="bottom-cta">
+
+      <div class="bottom-cta-content">
+
+        <span class="eyebrow">
+          Keep Exploring
+        </span>
+
+        <h2>
+          There is always something new to discover.
+        </h2>
+
+        <p>
+          Browse different topics, find an interesting idea and
+          keep exploring whenever curiosity takes you somewhere new.
+        </p>
+
+      </div>
+
+      <a href="#explore" class="cta-button">
+        Browse Topics
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+
+
+  <!-- Site Header and Footer -->
+  <script src="header.js"></script>
+  <script src="footer.js"></script>
+
+</body>
+</html>
